@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Just for you 🌸</title>
+<title>Ave 🌸</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -168,7 +168,7 @@
 
   .nav-inner {
     max-width:1000px; margin:0 auto;
-    display:flex; overflow-x:auto;
+    display:flex; overflow-x:auto; justify-content:center;
     scrollbar-width:none; padding:0 16px;
   }
 
@@ -1107,8 +1107,13 @@ const SURPRISE_DAYS = [11, 12, 13];
 let noteIdx = 0;
 
 function getTodayIdx() {
-  const diff = new Date() - TRIP_START;
-  return Math.max(0, Math.min(Math.floor(diff/86400000), 19));
+  const now = new Date();
+  // Compare by calendar date only, not time
+  const start = new Date(2026, 4, 24); // midnight May 24 local time
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const diff = today - start;
+  if (diff < 0) return -1; // before trip starts, lock everything
+  return Math.min(Math.floor(diff / 86400000), 19);
 }
 
 function fmtNoteDate(idx) {
@@ -1127,7 +1132,7 @@ function renderNote() {
   const body = document.getElementById('note-body');
   const btn = document.getElementById('note-open-btn');
 
-  if (noteIdx > todayIdx) {
+  if (todayIdx < 0 || noteIdx > todayIdx) {
     btn.style.display = 'none';
     body.innerHTML = `<div class="future-msg">🌙 This note is waiting for ${fmtNoteDate(noteIdx)}.<br>Come back then! ✨</div>`;
     return;
