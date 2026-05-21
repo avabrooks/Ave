@@ -47,11 +47,10 @@
   /* ── HERO ── */
   .hero {
     position:relative; z-index:1;
-    min-height:100vh;
     display:flex; flex-direction:column;
     align-items:center; justify-content:center;
     text-align:center;
-    padding:60px 24px 40px;
+    padding:32px 24px 28px;
   }
 
   .hero-petals {
@@ -115,12 +114,12 @@
   /* ── COUNTDOWN ── */
   .countdown-outer {
     animation:slideUp 0.6s 0.5s both;
-    margin-top:44px;
+    margin-top:16px;
   }
 
   .countdown-label-top {
-    font-size:12px; letter-spacing:0.15em; text-transform:uppercase;
-    color:var(--muted); margin-bottom:16px; font-weight:500;
+    font-size:11px; letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:10px; font-weight:500;
   }
 
   .countdown {
@@ -128,15 +127,15 @@
     background:var(--card);
     border:1.5px solid var(--blush);
     border-radius:24px;
-    padding:24px 36px;
-    box-shadow:0 8px 48px rgba(232,69,138,0.12), 0 2px 8px rgba(232,69,138,0.06);
+    padding:16px 28px;
+    box-shadow:0 4px 24px rgba(232,69,138,0.1);
   }
 
   .cd-unit { text-align:center; min-width:58px; }
 
   .cd-num {
     font-family:'Playfair Display', serif;
-    font-size:3rem; font-weight:700;
+    font-size:2rem; font-weight:700;
     color:var(--hot);
     display:block; line-height:1;
   }
@@ -189,8 +188,7 @@
   .nav-btn.active { color:var(--hot); border-bottom-color:var(--hot); }
 
   /* ── TABS ── */
-  .tab-panel { display:none; }
-  .tab-panel.active { display:block; }
+  .tab-panel { display:block; }
 
   /* ── SECTIONS ── */
   .section {
@@ -667,7 +665,7 @@
     to { opacity:1; transform:translateY(0); }
   }
 
-  .tab-panel.active { animation:fadeIn 0.35s ease; }
+
 
   @media (max-width:600px) {
     .hero h1 { font-size:2.8rem; }
@@ -679,6 +677,20 @@
 </head>
 <body>
 
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn" onclick="scrollToSection('tab-home')">🌸 Home</button>
+    <button class="nav-btn" onclick="scrollToSection('tab-calendar')">📅 Calendar</button>
+    <button class="nav-btn" onclick="scrollToSection('tab-itinerary')">✈️ My trip</button>
+    <button class="nav-btn" onclick="scrollToSection('tab-notes')">💌 Daily notes</button>
+    <button class="nav-btn" onclick="scrollToSection('tab-checklist')">🐾 Cat care</button>
+    <button class="nav-btn" onclick="scrollToSection('tab-timezone')">🌍 Our times</button>
+    <button class="nav-btn" onclick="scrollToSection('tab-playlist')">🎵 Playlist</button>
+  </div>
+</nav>
+
+<div class="tab-panel active" id="tab-home">
 <!-- HERO -->
 <section class="hero">
   <div class="hero-petals" id="petals"></div>
@@ -712,20 +724,9 @@
     </div>
   </div>
 </section>
-
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <button class="nav-btn active" onclick="showTab('calendar',this)">📅 Calendar</button>
-    <button class="nav-btn" onclick="showTab('itinerary',this)">✈️ My trip</button>
-    <button class="nav-btn" onclick="showTab('notes',this)">💌 Daily notes</button>
-    <button class="nav-btn" onclick="showTab('checklist',this)">🐾 Cat care</button>
-    <button class="nav-btn" onclick="showTab('timezone',this)">🌍 Our times</button>
-    <button class="nav-btn" onclick="showTab('playlist',this)">🎵 Playlist</button>
-  </div>
-</nav>
-
 <!-- ── TAB: CALENDAR ── -->
+</div>
+
 <div class="tab-panel active" id="tab-calendar">
   <div class="section">
     <div class="section-head">
@@ -974,13 +975,30 @@ for (let i = 0; i < 18; i++) {
 }
 
 // ── TAB SWITCHING ──
-function showTab(id, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo({ top: document.querySelector('.nav').offsetTop, behavior: 'smooth' });
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const navH = document.querySelector('.nav').offsetHeight;
+  const top = el.getBoundingClientRect().top + window.scrollY - navH;
+  window.scrollTo({ top, behavior: 'smooth' });
 }
+
+// Scroll spy — highlight active nav button
+const sections = ['tab-home','tab-calendar','tab-itinerary','tab-notes','tab-checklist','tab-timezone','tab-playlist'];
+function updateActiveNav() {
+  const navH = document.querySelector('.nav').offsetHeight;
+  let current = sections[0];
+  for (const id of sections) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (el.getBoundingClientRect().top - navH - 40 <= 0) current = id;
+  }
+  document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', sections[i] === current);
+  });
+}
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
 
 // ── COUNTDOWN ──
 const RETURN = new Date('2026-06-12T22:00:00');
