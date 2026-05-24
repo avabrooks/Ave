@@ -576,6 +576,23 @@
 
   .cl-contacts { display:flex; flex-direction:column; gap:0; }
 
+  .cl-list {
+    list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;
+  }
+
+  .cl-list li {
+    font-size:14px; color:var(--text); padding:8px 0;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    padding-left:16px; position:relative;
+  }
+
+  .cl-list li::before {
+    content:'·'; position:absolute; left:0;
+    color:var(--pink); font-size:20px; line-height:1;
+  }
+
+  .cl-list li:last-child { border-bottom:none; }
+
   .cl-contact-row {
     display:flex; gap:16px; align-items:baseline;
     padding:10px 0; border-bottom:1px solid rgba(0,0,0,0.05);
@@ -758,8 +775,7 @@
         <div class="trip-icon">✈️</div>
         <div>
           <div class="trip-date">May 24</div>
-          <div class="trip-place">New York → California</div>
-          <div class="trip-detail">First leg — heading west</div>
+          <div class="trip-place">New York → San Diego</div>
         </div>
       </div>
       <div class="trip-card flight-card">
@@ -767,7 +783,6 @@
         <div>
           <div class="trip-date">May 28</div>
           <div class="trip-place">California → Milan</div>
-          <div class="trip-detail">Crossing the Atlantic — Italy here we come</div>
         </div>
       </div>
       <div class="trip-card">
@@ -775,7 +790,6 @@
         <div>
           <div class="trip-date">May 30</div>
           <div class="trip-place">Milan</div>
-          <div class="trip-detail">Duomo, aperitivo, cathedral vibes</div>
         </div>
       </div>
       <div class="trip-card">
@@ -783,7 +797,6 @@
         <div>
           <div class="trip-date">June 1</div>
           <div class="trip-place">Venice</div>
-          <div class="trip-detail">Gondolas and getting wonderfully lost in alleyways</div>
         </div>
       </div>
       <div class="trip-card">
@@ -791,7 +804,6 @@
         <div>
           <div class="trip-date">June 3</div>
           <div class="trip-place">Florence</div>
-          <div class="trip-detail">The Uffizi, Ponte Vecchio, the best pasta I've ever eaten</div>
         </div>
       </div>
       <div class="trip-card">
@@ -799,7 +811,6 @@
         <div>
           <div class="trip-date">June 5</div>
           <div class="trip-place">Rome → Board the cruise</div>
-          <div class="trip-detail">The eternal city, then setting sail!</div>
         </div>
       </div>
       <div class="trip-card cruise">
@@ -807,7 +818,6 @@
         <div>
           <div class="trip-date">June 5–12 · Mediterranean Cruise</div>
           <div class="trip-place">Rome · Florence/Pisa · Cannes · Marseille · Sète · Barcelona</div>
-          <div class="trip-detail">Sun, sea, and wishing you were here every single day</div>
         </div>
       </div>
       <div class="trip-card flight-card">
@@ -815,7 +825,6 @@
         <div>
           <div class="trip-date">June 12 — Home!</div>
           <div class="trip-place">Barcelona → New York</div>
-          <div class="trip-detail">Departs 19:10 · Arrives JFK 22:00 · Running to you 🌸</div>
         </div>
       </div>
     </div>
@@ -866,24 +875,55 @@
 <div class="tab-panel" id="tab-checklist">
   <div class="section">
     <div class="section-head">
-      <div class="section-eyebrow">The fur babies</div>
-      <h2 class="section-title">Boy & Pewna's <em>care guide</em></h2>
-      <p class="section-sub">Everything they need while I'm away. Fill in the blanks before I leave!</p>
+      <h2 class="section-title">Boy & Pewna's <em>reminders</em></h2>
     </div>
 
     <div class="cl-block">
-      <div class="cl-block-title">🐱 Boy</div>
-      <p class="cl-info">[Add Boy's feeding schedule, food brand, portions, any quirks or medical notes here]</p>
+      <div class="cl-block-title">🍽️ Food</div>
+      <ul class="cl-list">
+        <li>Try to keep their bowls on the mini table until the new one comes</li>
+        <li>Half a can of wet food every night</li>
+        <li>Wet food is stored in the media console along with their treats</li>
+        <li>New wet food will arrive next week</li>
+        <li>Refill dry food every Sunday</li>
+      </ul>
     </div>
 
     <div class="cl-block">
-      <div class="cl-block-title">🐱 Pewna</div>
-      <p class="cl-info">[Add Pewna's feeding schedule, food brand, portions, any quirks or medical notes here]</p>
+      <div class="cl-block-title">🧹 Litter & cleaning</div>
+      <ul class="cl-list">
+        <li>Change pee pad every Sunday</li>
+      </ul>
     </div>
 
     <div class="cl-block">
-      <div class="cl-block-title">🏠 Apartment notes</div>
-      <p class="cl-info">[Litter box location, where food is stored, any apartment-specific things she needs to know]</p>
+      <div class="cl-block-title">🏠 House reminders</div>
+      <ul class="cl-list">
+        <li>Try not to leave the AC on when you leave for work</li>
+      </ul>
+    </div>
+
+    <div class="cl-block">
+      <div class="cl-block-title">☕ Coffee machine</div>
+      <ul class="cl-list">
+        <li>Check the reservoir</li>
+        <li>Turn on the machine</li>
+        <li>Fill with coffee grounds (around 3 scoops)</li>
+        <li>Tamp with the tool</li>
+        <li>Turn machine to coffee mode — knob on the right, turn all the way to the left</li>
+        <li>Make sure mug is underneath, then press 1 shot</li>
+        <li>Put ice in a glass + milk + stevia (cabinet above the sink)</li>
+        <li>Pour coffee and enjoy! ☀️</li>
+      </ul>
+    </div>
+
+    <div class="cl-block">
+      <div class="cl-block-title">📦 Supplies</div>
+      <ul class="cl-list">
+        <li>Extra pellets, pee pads, and wipes are under the sink</li>
+        <li>Extra small trash bags are under the sink behind the trash can</li>
+        <li>More supplies on the way via Amazon!</li>
+      </ul>
     </div>
 
     <div class="cl-block">
@@ -949,8 +989,8 @@
       <div class="playlist-art">🎵</div>
       <div>
         <div class="pl-title">Songs for while I'm away</div>
-        <p class="pl-sub">Swap the link below with your actual Spotify playlist URL</p>
-        <a href="https://open.spotify.com" target="_blank" class="spotify-btn">
+        <p class="pl-sub">Songs I made that make me think of you. Here's the link:</p>
+        <a href="https://open.spotify.com/playlist/0LKP06tP6IXWgn28Cm3ULc?si=06808691f9484cb2" target="_blank" class="spotify-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
           Open on Spotify
         </a>
@@ -1025,13 +1065,13 @@ tick(); setInterval(tick, 1000);
 const TRIP_START = new Date(2026, 4, 24, 12, 0, 0); // May 24 noon local time
 
 const EVENTS = {
-  '2026-5-24':['flight'],'2026-5-25':['apt'],'2026-5-26':['apt'],'2026-5-27':['apt'],'2026-5-28':['flight'],
-  '2026-5-29':['apt'],
-  '2026-5-30':['sitter'],'2026-5-31':['apt'],
-  '2026-6-1':['apt'],'2026-6-2':['sitter'],'2026-6-3':['apt'],
-  '2026-6-4':['apt'],'2026-6-5':['sitter'],
+  '2026-5-24':['flight'],
+  '2026-5-25':['apt'],'2026-5-26':['apt'],'2026-5-27':['apt'],'2026-5-28':['flight'],
+  '2026-5-29':['apt'],'2026-5-30':['apt'],'2026-5-31':['apt'],
+  '2026-6-1':['apt'],'2026-6-2':['apt'],'2026-6-3':['apt'],
+  '2026-6-4':['apt'],'2026-6-5':['apt'],
   '2026-6-6':['her-trip'],'2026-6-7':['her-trip'],'2026-6-8':['her-trip'],
-  '2026-6-9':['apt'],'2026-6-10':['sitter'],'2026-6-11':['apt'],
+  '2026-6-9':['apt'],'2026-6-10':['apt'],'2026-6-11':['apt'],
   '2026-6-12':['flight'],
 };
 
@@ -1081,7 +1121,7 @@ buildCal(2026, 5, 'cal-june');
 
 // ── DAILY NOTES ──
 const NOTES = {
-  0: "Day one, and I've already thought about you three times before I even got through security.\n\nTake good care of the boys. Eat something good today. I miss you already.",
+  0: "I already miss you so much baby. I can't believe we were long distance at one point, I don't know how we did it. I promise to be on my most patient, kind, most best behavior for us. I love you and I know it will go by so fast. I hope the babies behave tonight and you are able to sleep good. Debrief on Perfect Match tomorrow :)",
   1: "Two days in. I keep imagining you and Pewna on the couch, her pretending she doesn't want cuddles and then immediately demanding them.\n\nI'm thinking of you from every time zone.",
   2: "Day three. Remember: if Boy is being dramatic about food, he is fine. He is performing. Do not negotiate with him.\n\nI miss you. Even your annoying habits.",
   3: "Day four. Halfway through the first week. I hope you're sleeping okay.\n\nText me something random. I want to hear from you.",
