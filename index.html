@@ -762,9 +762,8 @@
     <div id="cal-june" style="margin-top:36px"></div>
     <div class="cal-legend">
       <div class="leg-item"><div class="leg-dot" style="background:#86efac;border:1.5px solid #16a34a;"></div> You at the apartment</div>
-      <div class="leg-item"><div class="leg-dot" style="background:#c4b5fd;border:1.5px dashed var(--hot);"></div> Your trip + sitter 🐾</div>
       <div class="leg-item"><div class="leg-dot" style="background:#c4b5fd;border:1.5px solid var(--violet);"></div> Your trip ✨</div>
-      <div class="leg-item"><div class="leg-dot" style="background:#c4b5fd;border:1.5px solid var(--hot);"></div> Your trip + sitter 🐾</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#c4b5fd;border:1.5px dashed var(--hot);"></div> Your trip + sitter 🐾</div>
       <div class="leg-item"><div class="leg-dot" style="background:#fde047;border:1.5px solid #ca8a04;"></div> My flights</div>
     </div>
   </div>
@@ -869,13 +868,6 @@
         </div>
       </div>
     </div>
-
-    <div id="surprise-wrap" style="display:none">
-      <div class="surprise-box">
-        <span class="s-icon">✨</span>
-        <span class="s-text">This is a special day — I've left you a little surprise. Check your email (and maybe your bag)!</span>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -949,10 +941,7 @@
           <span class="cl-contact-label">Cat sitter</span>
           <span class="cl-contact-val">Erin</span>
         </div>
-        <div class="cl-contact-row">
-          <span class="cl-contact-label">Me</span>
-          <span class="cl-contact-val">[Your number / WhatsApp]</span>
-        </div>
+
       </div>
     </div>
 
@@ -997,6 +986,7 @@
       <div>
         <div class="pl-title">Songs for while I'm away</div>
 
+        <p class="pl-sub">Songs for when you miss me.</p>
         <a href="https://open.spotify.com/playlist/0LKP06tP6IXWgn28Cm3ULc?si=06808691f9484cb2" target="_blank" class="spotify-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
           Open on Spotify
@@ -1133,24 +1123,23 @@ const NOTES = {
   2: "Happy Tuesday baby! I wish I was there to pack your lunch this morning. Writing your notes and walking you to the train is one of my favorite parts of my morning. I am so proud of you. For going to work, studying for the LSAT everyday, going to the gym, taking care of your family, you inspire me to be better, kinder, more patient, and chase my passions. I love bragging about you and talking about you. I am proud of everything you do.",
   3: "I saw this TikTok that made me cry of a long distance couple who send each other haikus every day. For some reason I really remember in school when we learned about haikus so I thought it would be cute to write you one:\n\nMiles blur without you\nI reach for you in the dark\nCome back to me soon\n\n(5 · 7 · 5)\n\nHave a good day my baby.",
   4: "Happy Thursday baby!!!! Almost Friday and Friday has summer Fridays so basically done for the week! We are through the first bit of me being gone at home! Off to Milan today where I'll just be surrounded by all the bags you have been showing me for months. You deserve everything and I want to buy you everything you want. You are my motivation and muse so thank you for growing with me. I can already see the day where buying you a new Prada bag is just like buying a new white t shirt for me. I love you my princess, I can't wait to give you everything.",
-  5: "Six days. Venice is beautiful and chaotic and it reminded me of us in the best way.\n\nSave me a spot on the couch.",
-  6: "One week! You've done amazing. Boy and Pewna have done amazing (presumably). You have done amazing.\n\nTreat yourself to something nice today.",
-  7: "Day eight. Florence. The Uffizi. The espresso. I keep wanting to show you everything.\n\nI am taking so many photos. I'll show you all of them when I'm back.",
-  8: "Day nine. The cruise starts soon. I keep thinking about how much more fun it would be with you on it.\n\nIs Pewna sleeping in weird spots again? She does that when she misses people.",
-  9: "Ten days! Double digits. You are incredible for holding everything together while I'm away.\n\nAlmost at your trip! Start getting excited. ✨",
-  10: "Day eleven. YOUR TRIP IS ALMOST HERE! Pack your favorite things. Take photos of everything. You have fully earned this.",
-  11: "YOUR TRIP, DAY ONE! I hope it's already exceeded your expectations. Wherever you are right now — soak it all in.\n\nI'm so happy you get to do this. 💜",
-  12: "Your trip, day two. I hope you slept somewhere beautiful and woke up with a huge smile.\n\nYou are braver and more capable than you know. I mean that.",
-  13: "Last day of your trip. Tonight you'll be back, exhausted and happy and full of stories.\n\nI want to hear every single one when I'm home. Almost there. Both of us. 🌸",
-  14: "Day fifteen. You're back from your trip and I'm still on the ship. Thank you for being you — for taking care of everything.\n\nThe cats missed you. I missed you more.",
-  15: "Day sixteen. Getting closer. The end of this trip is starting to feel real. The thing I'm most excited about is just… being in the same room as you.",
-  16: "Day seventeen. Three days until I'm home. My mental list of things to do when I get back mostly involves you, tea, and not moving for a while.",
-  17: "Day eighteen. Two more days. You've been incredible. I am so lucky.\n\nAlmost home.",
-  18: "Day nineteen. Tomorrow I fly home. I'm watching the Mediterranean tonight and thinking about seeing you at the airport.\n\nI love you. See you very soon. 💛",
-  19: "The last note. Today I come home.\n\nThank you for every single day. For the cats, for the apartment, for being patient, for opening these letters.\n\nI'm landing at 10pm. I'll be with you before midnight.\n\nSave me a hug. 🌸",
+  5: "Coming soon... 💌",
+  6: "Coming soon... 💌",
+  7: "Coming soon... 💌",
+  8: "Coming soon... 💌",
+  9: "Coming soon... 💌",
+  10: "Coming soon... 💌",
+  11: "Coming soon... 💌",
+  12: "Coming soon... 💌",
+  13: "Coming soon... 💌",
+  14: "Coming soon... 💌",
+  15: "Coming soon... 💌",
+  16: "Coming soon... 💌",
+  17: "Coming soon... 💌",
+  18: "Coming soon... 💌",
+  19: "Coming soon... 💌",
 };
 
-const SURPRISE_DAYS = [11, 12, 13];
 let noteIdx = 0;
 
 function getTodayIdx() {
@@ -1173,7 +1162,6 @@ function renderNote() {
   document.getElementById('note-day-of').textContent = `Day ${noteIdx+1} of 20`;
   document.getElementById('note-prev').disabled = noteIdx === 0;
   document.getElementById('note-next').disabled = noteIdx === 19;
-  document.getElementById('surprise-wrap').style.display = 'none';
 
   const todayIdx = getTodayIdx();
   const body = document.getElementById('note-body');
@@ -1199,9 +1187,6 @@ function revealNote() {
   const btn = document.getElementById('note-open-btn');
   btn.style.display = 'none';
   body.innerHTML = `<div class="letter-text">${NOTES[noteIdx]}</div>`;
-  if (SURPRISE_DAYS.includes(noteIdx)) {
-    document.getElementById('surprise-wrap').style.display = '';
-  }
 }
 
 function openNote() {
